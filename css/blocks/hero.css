@@ -1,0 +1,266 @@
+.hero {
+  padding: 20px 0 40px;
+}
+
+.hero__slider {
+  position: relative;
+}
+
+.hero__track-wrap {
+  width: 1294px;
+  height: 550px;
+  border-radius: 32px;
+  background: #dce5e2;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero__track {
+  display: flex;
+  height: 100%;
+  /* прокрутка слайдов   */
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.hero__slide {
+  display: flex;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 145px 0 127px 56px;
+  flex-shrink: 0;
+  
+  position: relative;
+  z-index: 1;
+}
+
+.hero__title {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 58px;
+  line-height: 120%;
+  margin: 0 0 16px;
+  white-space: nowrap;
+}
+
+.hero__text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  max-width: 340px;
+  margin: 0 0 32px;
+}
+
+.hero__btn {
+  width: 170px;
+  height: 50px;
+  border: 1px solid #000;
+  border-radius: 100px;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  text-transform: capitalize;
+  transition: background 0.2s ease, color 0.2s ease;
+  align-self: flex-start;
+}
+
+.hero__btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.hero__image-wrap {
+  flex: 1;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  
+  padding-right: 60px;
+  overflow: hidden;
+}
+
+.hero__image {
+  width: 647px;
+  height: 550px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+
+
+.hero__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, opacity 0.2s ease;
+  line-height: 0;
+}
+
+.hero__arrow:hover {
+  background: rgba(255,255,255,0.95);
+  opacity: 0.9;
+}
+
+
+.hero__arrow--prev {
+  left: 0;
+  transform: translateY(-50%) translateX(15px);
+}
+.hero__arrow--next {
+  right: 0;
+  transform: translateY(-50%) translateX(-15px);
+}
+
+.hero__dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.hero__dot {
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease;
+}
+
+.hero__dot--active {
+  background: #111;
+}
+
+
+@media (max-width: 1380px) {
+  .hero__track-wrap {
+    width: 100%;
+  }
+
+  .hero__image-wrap {
+    padding-right: 60px; 
+  }
+
+  .hero__image {
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .hero__title {
+    white-space: normal;
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__track-wrap {
+    height: auto;
+    border-radius: 20px;
+  }
+
+  .hero__slide {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .hero__content {
+    padding: 40px 24px 24px;
+  }
+
+  .hero__title {
+    font-size: 32px;
+    white-space: normal;
+  }
+
+  .hero__text {
+    max-width: 100%;
+  }
+
+  .hero__image-wrap {
+    margin-left: 0;
+    padding-right: 0;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
+    overflow: hidden;
+  }
+
+  .hero__image {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+ 
+  .hero__arrow {
+    top: auto;
+    bottom: 56px;
+    transform: none;
+    
+  }
+
+  .hero__arrow--prev {
+    left: 16px;
+    transform: none;
+  }
+  .hero__arrow--next {
+    right: 16px;
+    transform: none;
+  }
+
+  .hero__dots {
+    bottom: 14px;
+  }
+
+  .hero__dot { width: 40px; }
+}
+
+
+@media (max-width: 500px) {
+  .hero__image-wrap {
+    height: 260px;
+  }
+
+  .hero__title {
+    font-size: 26px;
+  }
+}
+
+  .hero__arrow--prev {
+    left: 16px;
+    transform: none;
+  }
+  .hero__arrow--next {
+    right: 16px;
+    transform: none;
+  }

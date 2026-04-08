@@ -1,0 +1,595 @@
+<!doctype html>
+<html class="page" lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/index.js" type="module"></script>
+    <link rel="shortcut icon" href="icons/apple-logo.png" type="image/x-icon">
+    <title>Apple</title>
+  </head>
+
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Поиск">
+  <div class="search-modal__inner">
+
+    <button class="search-modal__close" id="searchModalClose" aria-label="Закрыть поиск">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2L18 18M18 2L2 18" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <p class="search-modal__label">Search</p>
+
+    <form class="search-modal__form" action="#" onsubmit="return false;">
+      <div class="search-modal__input-wrap">
+        <svg class="search-modal__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9.5" cy="9.5" r="7" stroke="#aaa" stroke-width="1.5"/>
+          <path d="M15 15L21 21" stroke="#aaa" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input
+          class="search-modal__input"
+          id="searchModalInput"
+          type="text"
+          placeholder="Search keyword..."
+          autocomplete="off"
+        />
+      </div>
+    </form>
+
+    <div class="search-modal__tags">
+      <span class="search-modal__tags-label">Popular:</span>
+      <button class="search-modal__tag" type="button">iPhone</button>
+      <button class="search-modal__tag" type="button">Charger</button>
+      <button class="search-modal__tag" type="button">MacBook</button>
+      <button class="search-modal__tag" type="button">iPad</button>
+      <button class="search-modal__tag" type="button">Watch</button>
+    </div>
+
+  </div>
+</div>
+
+  <body class="page__body">
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__logo">
+          <a href="#" class="header__logo-link">
+            <img
+              class="logo"
+              width="170"
+              height="21"
+              src="/icons/logo.webp"
+              alt="Логотип 'Калифорния'"
+            />
+          </a>
+        </div>
+
+        <nav class="header__nav" id="headerNav">
+          <ul class="header__nav-list text-regular">
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-item-link">all products</a>
+            </li>
+
+            <!-- Solutions с дропдауном -->
+            <li class="header__nav-item header__nav-item--dropdown">
+              <a
+                href="#"
+                class="header__nav-item-link header__nav-item-link--dropdown"
+              >
+                Solutions
+                <svg class="header__nav-item-icon" width="12" height="8">
+                  <use href="/icons/sprite.svg#arrow-bottom"></use>
+                </svg>
+              </a>
+              <ul class="header__dropdown">
+                <li class="header__dropdown-item">
+                  <a href="#" class="header__dropdown-link">Example</a>
+                </li>
+                <li class="header__dropdown-item">
+                  <a href="#" class="header__dropdown-link">Example</a>
+                </li>
+                <li class="header__dropdown-item">
+                  <a href="#" class="header__dropdown-link">Example</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-item-link">ABOUT</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-item-link">Support</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+          <button class="header__actions-button" aria-label="Поиск">
+            <svg class="header__actions-icon" width="24" height="24">
+              <use href="/icons/sprite.svg#search"></use>
+            </svg>
+          </button>
+          <button class="header__actions-button" aria-label="Корзина">
+            <svg class="header__actions-icon" width="24" height="24">
+              <use href="/icons/sprite.svg#cart"></use>
+            </svg>
+          </button>
+
+          <!-- Бургер (только мобайл) -->
+          <button
+            class="header__burger"
+            id="burgerBtn"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="headerNav"
+          >
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="container">
+        <div class="hero__slider" id="heroSlider">
+          <!-- стрелки -->
+          <button
+            class="hero__arrow hero__arrow--prev"
+            id="heroPrev"
+            aria-label="Предыдущий слайд"
+          >
+            <svg
+              width="14"
+              height="26"
+              viewBox="0 0 14 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13 1L1 13L13 25"
+                stroke="#111"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            class="hero__arrow hero__arrow--next"
+            id="heroNext"
+            aria-label="Следующий слайд"
+          >
+            <svg
+              width="14"
+              height="26"
+              viewBox="0 0 14 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1L13 13L1 25"
+                stroke="#111"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <!-- track -->
+          <div class="hero__track-wrap">
+            <div class="hero__track" id="heroTrack">
+              <!-- Слайд 1 -->
+              <div class="hero__slide">
+                <div class="hero__content">
+                  <h1 class="hero__title">
+                    The new phones are<br />here take a look.
+                  </h1>
+                  <p class="hero__text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Scelerisque in est dui, aliquam, tempor. Faucibus morbi
+                    turpis.
+                  </p>
+                  <button class="hero__btn">Explore</button>
+                </div>
+                <div class="hero__image-wrap">
+                  <img
+                    class="hero__image"
+                    src="/img/hero-phones.webp"
+                    width="647"
+                    height="550"
+                    alt="Новые смартфоны"
+                  />
+                </div>
+              </div>
+
+              <!-- Слайд 2 -->
+              <div class="hero__slide">
+                <div class="hero__content">
+                  <h1 class="hero__title">
+                    The new phones are<br />here take a look.
+                  </h1>
+                  <p class="hero__text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Scelerisque in est dui, aliquam, tempor. Faucibus morbi
+                    turpis.
+                  </p>
+                  <button class="hero__btn">Explore</button>
+                </div>
+                <div class="hero__image-wrap">
+                  <img
+                    class="hero__image"
+                    src="/img/hero-phones.webp"
+                    width="647"
+                    height="550"
+                    alt="Новые смартфоны"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="hero__dots" id="heroDots">
+              <button
+                class="hero__dot hero__dot--active"
+                data-index="0"
+                aria-label="Слайд 1"
+              ></button>
+              <button
+                class="hero__dot"
+                data-index="1"
+                aria-label="Слайд 2"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="categories">
+      <div class="container">
+        <div class="categories__header">
+          <h2 class="categories__title">
+            Shop our latest offers and categories
+          </h2>
+          <p class="categories__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque
+            in est dui, aliquam,<br />tempor. Faucibus morbi turpis. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+
+        <div class="categories__grid">
+          <!-- Левая колонка -->
+          <div class="categories__col categories__col--left">
+            <!-- Ноутбук -->
+            <div class="categories__card categories__card--laptop">
+              <img
+                class="categories__card-img categories__card-img--laptop"
+                src="/img/categories-laptop.webp"
+                width="500"
+                height="377"
+                alt="Ноутбук"
+              />
+              <div class="categories__card-info categories__card-info--laptop">
+                <span class="categories__card-label">Laptops</span>
+                <h3 class="categories__card-title">
+                  True Laptop<br />Solution
+                </h3>
+              </div>
+            </div>
+
+            <!-- Часы -->
+            <div class="categories__card categories__card--watch">
+              <img
+                class="categories__card-img categories__card-img--watch"
+                src="/img/categories-watch.webp"
+                width="381"
+                height="270"
+                alt="Умные часы"
+              />
+              <div class="categories__card-info categories__card-info--watch">
+                <span class="categories__card-label">Watch</span>
+                <h3 class="categories__card-title">Not just<br />stylisht</h3>
+              </div>
+            </div>
+          </div>
+          <!-- /categories__col--left -->
+
+          <!-- Правая колонка -->
+          <div class="categories__col categories__col--right">
+            <!-- Телефон -->
+            <div class="categories__card categories__card--phone">
+              <img
+                class="categories__card-img categories__card-img--phone"
+                src="/img/categories-phones.webp"
+                width="405"
+                height="367"
+                alt="Смартфоны"
+              />
+              <div class="categories__card-info categories__card-info--phone">
+                <span class="categories__card-label">Phones</span>
+                <h3 class="categories__card-title">
+                  Your day to day<br />life
+                </h3>
+              </div>
+            </div>
+
+            <!-- Планшет -->
+            <div class="categories__card categories__card--tablet">
+              <img
+                class="categories__card-img categories__card-img--tablet"
+                src="/img/categories-tablet.webp"
+                width="467"
+                height="425"
+                alt="Планшет"
+              />
+              <div class="categories__card-info categories__card-info--tablet">
+                <span class="categories__card-label">Tablet</span>
+                <h3 class="categories__card-title">Empower your<br />work</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="advert">
+      <div class="container">
+        <div class="advert__header">
+          <h2 class="advert__title title-md">Save on our most selled items.</h2>
+          <p class="advert__header-info text-regular">Our new Limited Edition Winter Design BESPOKE 4-Door Flex™</p>
+        </div>
+        <div class="advert__goods-wrapper">
+          <div class="advert__goods-cart">
+            <a href="#" class="advert__goods-img-link"><img class="advert__goods-img" src="img/advert-laptop-1.webp" alt="Ноутбук Макбук Про 13"></a>
+            <div class="advert__goods-info">
+              <h3 class="advert__goods-title title-md"><a href="#" class="advert__goods-title-link">MacBook Pro 13</a></h3>
+              <p class="advert__goods-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</p>
+              <p class="advert__goods-price advert__goods-price--accent">$ 1,200.00 USD</p>
+            </div>
+          </div>
+          <div class="advert__goods-cart">
+            <a href="#" class="advert__goods-img-link"><img class="advert__goods-img" src="img/advert-watch.webp" alt="Часы Смарт Галакси Вотч 3"></a>
+            <div class="advert__goods-info">
+              <h3 class="advert__goods-title title-md"><a href="#" class="advert__goods-title-link">Smart Galaxy Watch 3</a></h3>
+              <p class="advert__goods-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+              <p class="advert__goods-price advert__goods-price--accent">$ 199.00 USD</p>
+            </div>
+          </div>
+          <div class="advert__goods-cart">
+            <a href="#" class="advert__goods-img-link"><img class="advert__goods-img" src="img/advert-laptop-2.webp" alt="Ноутбук Макбук Эир М1"></a>
+            <div class="advert__goods-info">
+              <h3 class="advert__goods-title title-md"><a href="#" class="advert__goods-title-link">MacBook Air M1</a></h3>
+              <p class="advert__goods-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+              <p class="advert__goods-price advert__goods-price--accent">$ 1,009.00 USD</p>
+            </div>
+          </div>
+          <div class="advert__goods-cart">
+            <a href="#" class="advert__goods-img-link"><img class="advert__goods-img" src="img/advert-tablet.webp" alt="Планшет iPad"></a>
+            <div class="advert__goods-info">
+              <h3 class="advert__goods-title title-md"><a href="#" class="advert__goods-title-link">iPad</a></h3>
+              <p class="advert__goods-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+              <p class="advert__goods-price advert__goods-price--accent">$ 610.00 USD</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="hot-offer">
+  <div class="container">
+
+    <div class="hot-offer__header">
+      <h2 class="hot-offer__title">See the best around here</h2>
+      <p class="hot-offer__text">Our new Limited Edition Winter Design BESPOKE 4-Door Flex™</p>
+    </div>
+
+    <div class="hot-offer__card-wrapper">
+
+      <!-- Карточка 1 -->
+      <div class="hot-offer__card">
+        <div class="hot-offer__card-info">
+          <span class="hot-offer__card-label">Smart light bulb pack</span>
+          <h3 class="hot-offer__card-title">Latest and gratest</h3>
+          <button class="hot-offer__card-btn">Explore</button>
+        </div>
+        <div class="hot-offer__card-img-wrap">
+          <img
+            class="hot-offer__card-img"
+            src="/img/hot-offer-watch.webp"
+            width="253"
+            height="200"
+            alt="Умные часы"
+          />
+        </div>
+      </div>
+
+      <!-- Карточка 2 -->
+      <div class="hot-offer__card">
+        <div class="hot-offer__card-info">
+          <span class="hot-offer__card-label">Smart light bulb pack</span>
+          <h3 class="hot-offer__card-title">Best selling</h3>
+          <button class="hot-offer__card-btn">Explore</button>
+        </div>
+        <div class="hot-offer__card-img-wrap">
+          <img
+            class="hot-offer__card-img"
+            src="/img/hot-offer-phones-laptop.webp"
+            width="253"
+            height="200"
+            alt="Смартфоны и ноутбук"
+          />
+        </div>
+      </div>
+
+      <!-- Карточка 3 -->
+      <div class="hot-offer__card">
+        <div class="hot-offer__card-info">
+          <span class="hot-offer__card-label">Smart light bulb pack</span>
+          <h3 class="hot-offer__card-title">Every product</h3>
+          <button class="hot-offer__card-btn">Explore</button>
+        </div>
+        <div class="hot-offer__card-img-wrap">
+          <img
+            class="hot-offer__card-img"
+            src="/img/hot-offer-laptop-phone.webp"
+            width="253"
+            height="200"
+            alt="Ноутбук и телефон"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+    </section>
+    <section class="ideas">
+  <div class="container">
+    <div class="ideas__header">
+      <h2 class="ideas__title">Ideas have a place here</h2>
+      <p class="ideas__text">Our new Limited Edition Winter Design BESPOKE 4-Door Flex™</p>
+    </div>
+    <div class="ideas__body">
+      <div class="ideas__img-wrap">
+        <img
+          class="ideas__img"
+          src="/img/ideas-img.webp"
+          width="602"
+          height="420"
+          alt="Открытая книга"
+        />
+      </div>
+      <ul class="ideas__list">
+        <li class="ideas__item">
+          <a href="#" class="ideas__link">We Make It Easy To Find The Great Design Talent, Easier...</a>
+        </li>
+        <li class="ideas__item">
+          <a href="#" class="ideas__link">Road Design Handbook For The International Road...</a>
+        </li>
+        <li class="ideas__item">
+          <a href="#" class="ideas__link">The Best Kept Secrets About Creative People</a>
+        </li>
+        <li class="ideas__item">
+          <a href="#" class="ideas__link">We Make It Easy To Find The Great Design Talent, Easier...</a>
+        </li>
+      </ul>
+    </div>
+    <div class="ideas__footer">
+      <a href="#" class="ideas__see-all">
+        See All
+        <svg width="30" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 16L16 4M16 4H7M16 4V13" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+    </section>
+    <section class="search-offer">
+  <div class="container">
+    <div class="search-offer__top">
+      <h2 class="search-offer__title">Looking for anything else?</h2>
+      <!-- Форма -->
+      <form class="search-offer__form" action="#" onsubmit="return false;">
+        <button class="search-offer__form-icon" type="submit" aria-label="Поиск">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8.5" cy="8.5" r="6" stroke="#888" stroke-width="1.5"/>
+            <path d="M13 13L18 18" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <input
+          class="search-offer__form-input"
+          type="text"
+          id="searchInput"
+          placeholder="Search keyword"
+          autocomplete="off"
+        />
+      </form>
+
+      <!-- Кнопки -->
+      <div class="search-offer__tags">
+        <button class="search-offer__tag" type="button">iPhone</button>
+        <button class="search-offer__tag" type="button">Charger</button>
+        <button class="search-offer__tag" type="button">Gift</button>
+        <button class="search-offer__tag" type="button">Google Pixel 3</button>
+        <button class="search-offer__tag" type="button">Keyboard</button>
+        <button class="search-offer__tag" type="button">13 Pro Max</button>
+        <button class="search-offer__tag" type="button">iPhone 12</button>
+        <button class="search-offer__tag" type="button">Laptop</button>
+        <button class="search-offer__tag" type="button">Mobile</button>
+      </div>
+    </div>
+
+    <!-- цветной блок -->
+    <div class="search-offer__banner">
+      <div class="search-offer__banner-content">
+        <h3 class="search-offer__banner-title">Never miss a thing</h3>
+        <p class="search-offer__banner-text">Sign up for texts to be notified about our best offers on the perfect gifts.</p>
+      </div>
+      <div class="search-offer__banner-img-wrap">
+        <img
+          class="search-offer__banner-img"
+          src="/img/search-offer-phones-laptop.webp"
+          width="350"
+          height="280"
+          alt="Устройства Apple"
+        />
+      </div>
+      <form class="search-offer__banner-form" action="#" onsubmit="return false;">
+          <input
+            class="search-offer__banner-input"
+            type="email"
+            id="emailInput"
+            placeholder="Your email"
+            autocomplete="email"
+          />
+          <button class="search-offer__banner-btn" type="submit">Sign up</button>
+        </form>
+    </div>
+
+  </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__wrapper">
+          <div class="footer__logo-wrapper">
+            <a href="#" class="footer__logo-link">
+                <img
+                  class="logo"
+                  width="170"
+                  height="21"
+                  src="/icons/logo.webp"
+                  alt="Логотип 'Калифорния'"
+                />
+              </a>
+              <p class="footer__info">Sign up for texts to be notified about <br> our best offers on the perfect gifts.</p>
+          </div>
+            <nav class="footer__nav">
+              <ul class="footer__products-list footer__list">
+                <li class="footer__products-item footer__nav-item--title">All products</li>
+                <li class="footer__products-item"><a href="#" class="footer__nav-link">Phones         </a></li>
+                <li class="footer__products-item"><a href="#" class="footer__nav-link">Watch         </a></li>
+                <li class="footer__products-item"><a href="#" class="footer__nav-link">Tablet         </a></li>
+                <li class="footer__products-item"><a href="#" class="footer__nav-link">Laptops         </a></li>
+              </ul>
+              <ul class="footer__about-list footer__list">
+                <li class="footer__about-item footer__nav-item--title">Company</li>
+                <li class="footer__about-item"><a href="#" class="footer__nav-link">About         </a></li>
+                <li class="footer__about-item"><a href="#" class="footer__nav-link">Support         </a></li>
+            </ul>
+              <ul class="footer__support-list footer__list">
+                <li class="footer__support-item footer__nav-item--title">Support</li>
+                <li class="footer__support-item"><a href="#" class="footer__nav-link">Style Guide         </a></li>
+                <li class="footer__support-item"><a href="#" class="footer__nav-link">Licensing         </a></li>
+                <li class="footer__support-item"><a href="#" class="footer__nav-link">Change Log         </a></li>
+                <li class="footer__support-item"><a href="#" class="footer__nav-link">Contact         </a></li></ul>
+              <ul class="footer__social-media-list footer__list">
+                <li class="footer__social-media-item footer__nav-item--title">Follow Us</li>
+                <li class="footer__social-media-item"><a href="#" class="footer__nav-link">Instagram         </a></li>
+              <li class="footer__social-media-item"><a href="#" class="footer__nav-link">Facebook         </a></li>
+              <li class="footer__social-media-item"><a href="#" class="footer__nav-link">LinkedIn         </a></li>
+              <li class="footer__social-media-item"><a href="#" class="footer__nav-link">Youtube         </a></li>
+            </ul>
+            </nav>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

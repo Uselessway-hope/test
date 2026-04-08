@@ -1,0 +1,387 @@
+
+.categories {
+  padding: 26px 0 0 0;
+}
+
+.categories__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.categories__title {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 125%;
+  text-align: center;
+  
+  margin: 0 0 16px;
+}
+
+.categories__text {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  text-align: center;
+  margin: 0;
+}
+
+
+.categories__grid {
+  display: grid;
+  grid-template-columns: 639fr 312fr 312fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.categories__col--left {
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+.categories__col--right {
+  display: contents;
+}
+
+.categories__card--phone  { grid-column: 2 / 3; }
+.categories__card--tablet { grid-column: 3 / 4; }
+
+/* Карточки */
+.categories__card {
+  position: relative;
+  border-radius: 16px;
+  background: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 35px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.categories__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.18);
+}
+
+.categories__card--laptop { aspect-ratio: 639 / 472; }
+.categories__card--watch  { aspect-ratio: 639 / 270; }
+.categories__card--phone  { aspect-ratio: 312 / 792; }
+.categories__card--tablet { aspect-ratio: 312 / 792; }
+
+.categories__card--laptop {
+  margin-bottom: 56px;
+}
+
+/* Картинки */
+.categories__card-img {
+  display: block;
+  position: absolute;
+}
+
+.categories__card-img--laptop {
+  width: 78%;
+  height: auto;
+  object-fit: contain;
+  left: 6%;
+  bottom: 95px;
+}
+
+.categories__card-img--watch {
+  width: 60%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+  left: 0;
+  top: 0;
+}
+
+.categories__card-img--phone {
+  width: 130%;
+  height: auto;
+  object-fit: contain;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.categories__card-img--tablet {
+  width: 150%;
+  height: auto;
+  object-fit: contain;
+  left: 50%;
+  bottom: 40px;
+  top: auto;
+  transform: translateX(-50%);
+}
+
+/* Подписи */
+.categories__card-info {
+  position: absolute;
+  z-index: 2;
+}
+
+.categories__card-info--laptop {
+  bottom: 24px;
+  right: 24px;
+  text-align: right;
+}
+
+.categories__card-info--watch {
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+.categories__card-info--phone {
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.categories__card-info--tablet {
+  top: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.categories__card-label {
+  display: block;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  margin-bottom: 4px;
+}
+
+.categories__card-title {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 120%;
+  margin: 0;
+}
+
+
+
+@media (max-width: 1380px) {
+  .categories__card-title { font-size: 26px; }
+  .categories__card-img--laptop { bottom: 12%; }
+}
+
+
+
+@media (max-width: 1024px) {
+.categories__card--laptop {
+  margin-bottom: 0;
+}
+
+  .categories__grid {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .categories__col--left {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Возвращаем col--right из display:contents в нормальный flex */
+  .categories__col--right {
+    display: flex;
+    flex: 1 1 0;
+    min-width: 0;
+    flex-direction: row;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  /* Сбрасываем grid-column, которые больше не нужны */
+  .categories__card--phone,
+  .categories__card--tablet {
+    grid-column: unset;
+    flex: 1 1 0;
+    min-width: 0;
+    aspect-ratio: 312 / 792;
+  }
+
+  .categories__card--laptop {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Часы занимают всё оставшееся место в левой колонке */
+  .categories__card--watch {
+    flex: 1;
+    aspect-ratio: unset;
+    min-height: 120px;
+  }
+
+  /* Картинки */
+  .categories__card-img--laptop {
+    width: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 72px;
+  }
+
+  .categories__card-img--watch {
+    width: 55%;
+    height: 100%;
+  }
+
+  .categories__card-img--phone  { width: 120%; }
+  .categories__card-img--tablet { width: 140%; bottom: 16px; }
+
+  /* Текст */
+  .categories__card-title { font-size: 20px; }
+  .categories__card-label { font-size: 12px; }
+
+  .categories__card-info--laptop { bottom: 16px; right: 16px; }
+  .categories__card-info--watch  { right: 16px; }
+}
+
+
+/* ══════════════════════════════════════════════
+   <= 768px: всё в одну колонку,
+   phone + tablet остаются рядом (flex-row)
+   ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .categories {
+    padding: 48px 0;
+  }
+
+  .categories__title { font-size: 32px; }
+
+  .categories__grid {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .categories__col--left,
+  .categories__col--right {
+    width: 100%;
+    flex: none;
+  }
+
+  .categories__col--right {
+    flex-direction: row;
+  }
+
+  .categories__card--phone,
+  .categories__card--tablet {
+    aspect-ratio: 312 / 792;
+  }
+
+  .categories__card--laptop {
+    aspect-ratio: 4 / 3;
+  }
+
+  .categories__card--watch {
+    aspect-ratio: 16 / 7;
+    flex: none;
+    width: 100%;
+  }
+
+  .categories__card-img--laptop {
+    left: 6%;
+    transform: none;
+    width: 80%;
+    bottom: 72px;
+  }
+}
+
+
+/* ══════════════════════════════════════════════
+   <= 480px: phone + tablet тоже в столбик
+   ══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .categories__title { font-size: 28px; }
+
+  .categories__col--right {
+    flex-direction: column;
+  }
+
+  /* Все карточки — полная ширина, фиксированная высота */
+  .categories__card--phone,
+  .categories__card--tablet {
+    flex: none;
+    width: 100%;
+    height: 220px;
+    aspect-ratio: unset;
+    min-height: unset;
+  }
+
+  .categories__card--laptop { aspect-ratio: 4 / 3; }
+  .categories__card--watch  { aspect-ratio: 16 / 6; }
+
+  .categories__card-img--laptop {
+    width: 75%;
+    bottom: 64px;
+    left: 6%;
+    transform: none;
+  }
+
+  .categories__card-img--watch { width: 45%; }
+
+  /* Телефон: картинка заполняет карточку как фон */
+  .categories__card-img--phone {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transform: none;
+    top: 0;
+    left: 0;
+  }
+
+  /* Планшет: картинка заполняет карточку как фон */
+  .categories__card-img--tablet {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    transform: none;
+    bottom: auto;
+    top: 0;
+    left: 0;
+  }
+
+  .categories__card-title { font-size: 22px; }
+
+  /* Подписи — белый текст с тенью, чтобы читался поверх фото */
+  .categories__card--phone .categories__card-info,
+  .categories__card--tablet .categories__card-info {
+    text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+  }
+
+  .categories__card--phone .categories__card-label,
+  .categories__card--tablet .categories__card-label,
+  .categories__card--phone .categories__card-title,
+  .categories__card--tablet .categories__card-title {
+    color: var(--main-color);
+  }
+
+  .categories__card-info--watch {
+    top: auto;
+    bottom: 14px;
+    transform: none;
+  }
+
+  .categories__card-info--phone  { top: 16px; }
+  .categories__card-info--tablet { right: -195px;
+  top: 70px; }
+}

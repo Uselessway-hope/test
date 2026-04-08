@@ -1,0 +1,162 @@
+/* ─── Search Modal ───────────────────────────────────────── */
+.search-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 80px;
+
+  /* скрыто по умолчанию */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+
+.search-modal--open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* ─── Белая карточка ─────────────────────────────────────── */
+.search-modal__inner {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 48px 36px;
+  width: 100%;
+  max-width: 680px;
+
+  transform: translateY(-16px);
+  transition: transform 0.25s ease;
+}
+
+.search-modal--open .search-modal__inner {
+  transform: translateY(0);
+}
+
+/* ─── Крестик ────────────────────────────────────────────── */
+.search-modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.search-modal__close:hover {
+  background: #f0f0f0;
+}
+
+/* ─── Лейбл ──────────────────────────────────────────────── */
+.search-modal__label {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  color: #888;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ─── Форма ──────────────────────────────────────────────── */
+.search-modal__form {
+  margin-bottom: 20px;
+}
+
+.search-modal__input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1.5px solid #111;
+  padding-bottom: 12px;
+}
+
+.search-modal__icon {
+  flex-shrink: 0;
+}
+
+.search-modal__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 120%;
+  color: #000;
+  background: transparent;
+}
+
+.search-modal__input::placeholder {
+  color: #ccc;
+}
+
+/* ─── Теги ───────────────────────────────────────────────── */
+.search-modal__tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.search-modal__tags-label {
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: #888;
+  margin-right: 4px;
+}
+
+.search-modal__tag {
+  height: 32px;
+  padding: 0 16px;
+  border: 1px solid #d0d0d0;
+  border-radius: 100px;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 13px;
+  color: #111;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.search-modal__tag:hover {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+/* ─── Адаптив ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .search-modal {
+    padding-top: 0;
+    align-items: flex-end;
+  }
+
+  .search-modal__inner {
+    border-radius: 20px 20px 0 0;
+    padding: 32px 24px 40px;
+    max-width: 100%;
+    transform: translateY(40px);
+  }
+
+  .search-modal--open .search-modal__inner {
+    transform: translateY(0);
+  }
+
+  .search-modal__input {
+    font-size: 22px;
+  }
+}

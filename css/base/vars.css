@@ -1,0 +1,15 @@
+:root {
+  /* font-family */
+  --font-family: "Inter 24pt", sans-serif;
+  --second-family: "Readex Pro", sans-serif;
+
+  /* colors */
+  --main-color: #000000;
+  --accent-color: #a5c4b9;
+  --accent-bg: #DCE5E2;
+  --bg-color: #fff;
+
+  /* container */
+  --container-width: 1294px;
+  --container-padding: 15px;
+}

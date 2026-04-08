@@ -1,0 +1,157 @@
+
+
+.advert {
+  padding: 60px 0 69px;
+}
+
+.advert__header {
+  padding-bottom: 50px;
+  text-align: center;
+  min-height: 154px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  flex-direction: column;
+}
+
+.advert__goods-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 16px;
+}
+
+.advert__goods-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-shrink: ;
+  width: 100%;
+  max-width: 302.5px;
+  min-height: 396px;
+  gap: 33px;
+
+  transition: box-shadow 0.35s ease;
+  border-radius: 10%;
+}
+
+.advert__goods-cart:hover {
+  box-shadow: 0 0 20px 15px #dce5e2;
+}
+
+.advert__goods-title {
+  font-size: 22px;
+  line-height: 125%;
+  text-align: center;
+}
+
+.advert__goods-text {
+  font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 120%;
+  color: #4b4b4b;
+  padding: 9px 0 25px;
+  margin: 0;
+}
+
+.advert__goods-price--accent {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  text-align: center;
+}
+
+
+.advert__goods-img-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%;
+  
+
+  margin-bottom: 24px;
+  align-self: center;
+}
+
+
+
+.advert__goods-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* ══════════════════════════════════════════════
+   <= 1024px: 2 карточки в ряду
+   ══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .advert__goods-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 32px;
+  }
+
+  .advert__goods-cart {
+    max-width: calc(50% - 16px);
+    min-height: auto;
+    gap: 12px;
+  }
+  .advert__goods-info, .advert__goods-title {
+    text-align: center;
+}
+}
+
+
+/* ══════════════════════════════════════════════
+   <= 768px: 2 карточки в ряду, уже
+   ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .advert {
+    padding: 40px 0 60px;
+  }
+
+  .advert__header {
+    min-height: auto;
+    padding-bottom: 32px;
+  }
+
+  .advert__goods-wrapper {
+    gap: 20px 16px;
+  }
+
+  .advert__goods-cart {
+    max-width: calc(50% - 8px);
+  }
+
+  .advert__goods-title {
+    font-size: 18px;
+  }
+
+  .advert__goods-price--accent {
+    font-size: 16px;
+  }
+}
+
+
+/* ══════════════════════════════════════════════
+   <= 480px: 1 карточка в ряду (стопка)
+   ══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .advert__goods-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .advert__goods-cart {
+    max-width: 100%;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .advert__goods-title {
+    font-size: 20px;
+  }
+}

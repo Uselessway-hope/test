@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Readex Pro';
+    src: local('Readex Pro Regular'), local('ReadexPro-Regular'),
+        url('../fonts/ReadexPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter 24pt';
+    src: local('Inter 24pt Regular'), local('Inter24pt-Regular'),
+        url('../fonts/Inter24pt-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
